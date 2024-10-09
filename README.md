@@ -1,3 +1,3 @@
-# staicFEM
+# staticFEM
 
 Stiffness Matrix Analysis for Trusses and Frames. 
