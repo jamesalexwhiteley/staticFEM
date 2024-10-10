@@ -86,7 +86,7 @@ class TrussFEM():
         normal = normal / np.linalg.norm(normal) 
         return normal
 
-    def show(self, scale=1000, figsize=(4, 4), fontsize=9,
+    def show(self, scale=1000, figsize=(2.5, 2.5), fontsize=7,
              supports=False, 
              nodal_forces=False,
              nodal_disp=False,
