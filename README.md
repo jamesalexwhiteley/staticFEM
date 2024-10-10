@@ -3,6 +3,9 @@
 Stiffness Matrix Analysis for 2d Trusses, Beams and Frames. 
 
 ```python
+import numpy as np 
+from staticFEM.FEM import Truss 
+
 nodes = np.array([[15, 10], [15, 0], [0, 10], [0, 0]]) 
 elements = np.array([[2, 0], [3, 0], [0, 1], [2, 1], [3, 1], [2, 3]]) 
 truss = Truss(nodes, elements, E=200e9, A=0.2)
@@ -12,4 +15,4 @@ truss.initialise()
 truss.solve()
 truss.show()
 
-![Truss; nodal forces and deflected shape](./figs/truss.png)
+![Truss; nodal forces and deflected shape](figs/truss.png)
