@@ -15,4 +15,4 @@ truss.initialise()
 truss.solve()
 truss.show()
 
-![Truss; nodal forces and deflected shape](figs/truss.png)
+![Truss; nodal forces and deflected shape](https://github.com/jamesalexwhiteley/staticFEM/blob/main/figs/truss.png)
