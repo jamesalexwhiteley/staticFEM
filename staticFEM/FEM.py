@@ -86,7 +86,7 @@ class TrussFEM():
         normal = normal / np.linalg.norm(normal) 
         return normal
 
-    def show(self, scale=1000, figsize=(6, 6), fontsize=10,
+    def show(self, scale=1000, figsize=(4, 4), fontsize=9,
              supports=False, 
              nodal_forces=False,
              nodal_disp=False,
@@ -135,7 +135,7 @@ class TrussFEM():
             
         plt.axis('off') 
         plt.gca().set_aspect('equal', adjustable='box')
-        # plt.savefig("truss.png", dpi=300) 
+        plt.savefig("truss.png", dpi=300) 
         plt.show()
 
 class Truss(TrussFEM):   
