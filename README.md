@@ -2,8 +2,9 @@
 
 Stiffness Matrix Analysis for 2d Trusses, Beams and Frames. 
 
-<!-- ![Truss; nodal forces and deflected shape](figs/truss.png) -->
-<img src="figs/truss.png" alt="Truss; nodal forces and deflected shape" width="400"/>
+<div style="text-align: center;">
+    <img src="figs/truss.png" alt="Truss; nodal forces and deflected shape" width="500"/>
+</div>
 
 ```python
 import numpy as np 
