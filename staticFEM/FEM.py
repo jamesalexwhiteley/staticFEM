@@ -135,7 +135,7 @@ class TrussFEM():
             
         plt.axis('off') 
         plt.gca().set_aspect('equal', adjustable='box')
-        # plt.savefig("truss.png") 
+        # plt.savefig("truss.png", dpi=300) 
         plt.show()
 
 class Truss(TrussFEM):   
