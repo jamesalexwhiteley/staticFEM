@@ -3,7 +3,7 @@
 Stiffness Matrix Analysis for 2d Trusses, Beams and Frames. 
 
 <div align="center">
-    <img src="figs/truss2.png" alt="Truss; nodal forces and deflected shape" width="500"/>
+    <img src="figs/truss.png" alt="Truss; nodal forces and deflected shape" width="500"/>
 </div>
 
 ```python
@@ -18,3 +18,19 @@ truss.add_constraints(dofs=[[1, 1], [1, 0]], nodes=[2, 3])
 truss.initialise()  
 truss.solve()
 truss.show()
+```
+
+<div align="center">
+    <img src="figs/frame.png" alt="Truss; nodal forces and deflected shape" width="500"/>
+</div>
+
+```python
+nodes = np.array([[0, 0], [0, 2], [1.5, 2], [3, 2], [3, 0]]) 
+elements = np.array([[0, 1], [1, 2], [2, 3], [3, 4]]) 
+frame = Frame(nodes, elements, E, A, I)
+frame.add_loads(loads=[[20e3, -20e3, 0], ], nodes=[2, ]) 
+frame.add_constraints(dofs=[[1, 1, 1], [1, 1, 0]], nodes=[0, 4])
+frame.initialise()   
+frame.solve()
+frame.show()
+```

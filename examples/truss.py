@@ -15,11 +15,12 @@ elements = np.array([
             [3, 1], 
             [2, 3]]) 
 
+# UKB 127x76x13
 E = 200e9 # Pa 
-A = 0.2 # m2 
+A = 1.65e-3 # m2 
 
 truss = Truss(nodes, elements, E, A)
-truss.add_loads(loads=[[0, -500e3],], nodes=[0,])
+truss.add_loads(loads=[[0, -20e3],], nodes=[0,])
 truss.add_constraints(dofs=[[1, 1], [1, 0]], nodes=[2, 3])
 truss.add_element_properties(A=0.4, elems=(0, 2, 4, 5)) 
 
