@@ -1,11 +1,11 @@
 import numpy as np 
-from staticFEM.FEM import Beam  
+from staticFEM.FEM import Frame  
 
 nodes = np.array([
     [0, 0], 
-    [1, 0], 
-    [2, 0],
-    [4, 0]]) 
+    [2, 0], 
+    [4, 0],
+    [6, 0]]) 
 
 elements = np.array([
             [0, 1], 
@@ -14,14 +14,20 @@ elements = np.array([
 
 # UKB 127x76x13
 E = 200e9 # Pa 
+A = 1.65e-3 # m2 
 I = 4.73e-6 # m4
 
-beam = Beam(nodes, elements, E, I)
-beam.add_loads(loads=[[-10e3, 0], [-1e3, 0]], nodes=[1, 3])
-beam.add_constraints(dofs=[[1, 0], [1, 0]], nodes=[0, 2])
-beam.initialise()
-beam.solve()
-beam.show(member_id=True, 
+frame = Frame(nodes, elements, E, A, I)
+# add loads and constraints 
+frame.add_loads(loads=[[0, -20e3, 0], [0, -20e3, 0]], nodes=[1, 3]) 
+frame.add_constraints(dofs=[[1, 1, 0], [1, 1, 0]], nodes=[0, 2]) 
+# add support with finite stiffness
+frame.add_constraints(stiffness=[[0, 0, 10e6], ], nodes=[3,]) 
+
+frame.initialise()   
+frame.solve()
+frame.show(figsize=(8, 4),
+           member_id=False, 
            node_id=False, 
            supports=True, 
            nodal_forces=True, 

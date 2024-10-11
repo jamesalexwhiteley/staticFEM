@@ -22,7 +22,8 @@ A = 1.65e-3 # m2
 truss = Truss(nodes, elements, E, A)
 truss.add_loads(loads=[[0, -20e3],], nodes=[0,])
 truss.add_constraints(dofs=[[1, 1], [1, 0]], nodes=[2, 3])
-truss.add_element_properties(A=0.4, elems=(0, 2, 4, 5)) 
+# add support with finite stiffness
+truss.add_constraints(stiffness=[[10e6, 10e6], ], nodes=[1,]) 
 
 truss.initialise()  
 truss.solve()

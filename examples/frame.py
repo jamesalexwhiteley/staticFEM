@@ -20,13 +20,17 @@ A = 1.65e-3 # m2
 I = 4.73e-6 # m4
 
 frame = Frame(nodes, elements, E, A, I)
-frame.add_loads(loads=[[20e3, -20e3, 0], ], nodes=[2, ]) 
-frame.add_constraints(dofs=[[1, 1, 1], [1, 1, 0]], nodes=[0, 4])
+# add loads and constraints 
+frame.add_loads(loads=[[20e3, -20e3, 0], ], nodes=[2,]) 
+frame.add_constraints(dofs=[[1, 1, 0], [0, 0, 0]], nodes=[0, 4]) 
+# add support with finite stiffness
+frame.add_loads(loads=[[100e3, -100e3, -100e3], ], nodes=[4,]) 
+frame.add_constraints(stiffness=[[10e6, 10e6, 10e6], ], nodes=[4,]) 
 
 frame.initialise()   
 frame.solve()
 frame.show(member_id=False, 
            node_id=False, 
            supports=True, 
-           nodal_forces=True, 
-           nodal_disp=False)
+           nodal_forces=False, 
+           nodal_disp=True)
