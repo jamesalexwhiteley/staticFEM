@@ -1,6 +1,9 @@
 import numpy as np 
 from staticFEM.FEM import Frame  
 
+# Author: James Whiteley (github.com/jamesalexwhiteley)
+
+
 nodes = np.array([
     [0, 0], 
     [0, 2], 

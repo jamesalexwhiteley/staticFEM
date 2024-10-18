@@ -1,6 +1,8 @@
 import numpy as np 
 import matplotlib.pyplot as plt
 
+# Author: James Whiteley (github.com/jamesalexwhiteley)
+
 # ======================================================================= # 
 # Truss model 
 # ======================================================================= # 
@@ -138,7 +140,7 @@ class TrussFEM():
                     ux = self.a[self.ndof*i, :][0]
                     uy = self.a[self.ndof*i+1, :][0]
                     plt.text(nx, ny, f"{ux:.3f},{uy:.3f}", fontsize=fontsize, ha='center', va='center')
-            
+
         plt.axis('off') 
         plt.gca().set_aspect('equal', adjustable='box')
         # plt.savefig("truss.png", dpi=300) 

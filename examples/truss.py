@@ -1,6 +1,8 @@
 import numpy as np 
 from staticFEM.FEM import Truss 
 
+# Author: James Whiteley (github.com/jamesalexwhiteley)
+
 nodes = np.array([
     [15, 10], 
     [15, 0], 
