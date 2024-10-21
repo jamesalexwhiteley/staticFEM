@@ -184,7 +184,7 @@ class Truss(TrussFEM):
     def add_loads(self, loads, nodes):
         """
         Add loads
-        loads=[[0, -10],], nodes=[0,] -> Node 0 loaded in y direction
+        loads=[[0, -10],], nodes=[0,] -> Node 0 loaded in y (downwards)
 
         """
         for load, node in zip(loads, nodes):
@@ -447,7 +447,7 @@ class Frame(FrameFEM):
     def add_loads(self, loads, nodes):
         """
         Add loads
-        loads=[[0, -10, 4],], nodes=[0,] -> Node 0 loaded in y direction, and moment applied (counterclockwise positive)
+        loads=[[0, -10, 4],], nodes=[0,] -> Node 0 loaded in y (downwards), and moment applied (counterclockwise)
 
         """
         for load, node in zip(loads, nodes):
