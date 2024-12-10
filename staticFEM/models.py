@@ -327,7 +327,7 @@ class FrameFEM(Truss):
         
         plt.figure(figsize=figsize)
 
-        for elem in self.elems:
+        for n, elem in enumerate(self.elems):
             
             x1, y1 = self.nodes[elem[0]]
             x2, y2 = self.nodes[elem[1]]
@@ -360,6 +360,8 @@ class FrameFEM(Truss):
                         [y1 + scale * v1, y2 + scale * v2], color='b', s=fontsize)           
 
             if member_id:   
+                node_ind = self.elems[n, :]
+                x, y = self.nodes[node_ind].T
                 normal = self.normal_vector(x, y)
                 label_x = x.mean() + normal[0] * offset
                 label_y = y.mean() + normal[1] * offset
