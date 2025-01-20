@@ -154,7 +154,7 @@ class Truss(TrussFEM):
         Parameters
         ----------
         nodes : np.array(
-                    [[x1, y2], 
+                    [[x1, y1], 
                      [x2, y2], 
                     ... 
         elements : np.array( 
@@ -307,14 +307,9 @@ class FrameFEM(Truss):
         Kf = self.K[np.ix_(self.dof_free, self.dof_free)] 
         ff = self.f[self.dof_free]
         self.a[self.dof_free] = np.linalg.solve(Kf, ff)
-
+ 
         Kc = self.K[np.ix_(self.dof_con, self.dof_free)]
         self.f[self.dof_con] = Kc @ self.a[self.dof_free]
-
-        # for support in self.dof_stiff:
-        #         dof_id, k_spring = support['dof'], support['stiffness']
-        #         if k_spring > 0:
-        #             self.f[dof_id] = k_spring * self.a[dof_id] 
         
     def show(self, scale=10, figsize=(6, 6), fontsize=10,
              supports=False, 
@@ -339,14 +334,25 @@ class FrameFEM(Truss):
             u2, v2, theta2 = self.a[self.ndof * elem[1]:self.ndof * elem[1] + 3]
 
             xy = np.zeros((interpolation + 1, 2))   # interpolated points 
+
             for i in range(interpolation + 1):
+
                 xi = i / interpolation  
-                x_local = u1 * (1 - xi) + u2 * xi   # linear interpolation in x 
-                y_local = (                         # cubic interpolation in y 
-                    v1 * (1 - 3 * xi**2 + 2 * xi**3) +  
-                    v2 * (3 * xi**2 - 2 * xi**3) +      
-                    theta1 * L * (xi - 2 * xi**2 + xi**3) + 
-                    theta2 * L * (-xi**2 + xi**3)            
+
+                # cubic interpolation in x
+                x_local = (
+                    u1 * (1 - 3 * xi**2 + 2 * xi**3) +
+                    u2 * (3 * xi**2 - 2 * xi**3) +
+                    theta1 * L * (xi - 2 * xi**2 + xi**3) +
+                    theta2 * L * (-xi**2 + xi**3)
+                )
+
+                # cubic interpolation in y
+                y_local = (
+                    v1 * (1 - 3 * xi**2 + 2 * xi**3) +
+                    v2 * (3 * xi**2 - 2 * xi**3) +
+                    theta1 * L * (xi - 2 * xi**2 + xi**3) +
+                    theta2 * L * (-xi**2 + xi**3)
                 )
 
                 # local displacements vector
@@ -408,7 +414,7 @@ class Frame(FrameFEM):
         Parameters
         ----------
         nodes : np.array(
-                    [[x1, y2], 
+                    [[x1, y1], 
                      [x2, y2], 
                     ...
         elements : np.array(

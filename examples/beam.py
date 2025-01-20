@@ -1,5 +1,5 @@
 import numpy as np 
-from staticFEM.FEM import Frame  
+from staticFEM.models import Frame  
 
 # Author: James Whiteley (github.com/jamesalexwhiteley)
 

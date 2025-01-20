@@ -1,5 +1,5 @@
 import numpy as np 
-from staticFEM.FEM import Truss 
+from staticFEM.models import Truss 
 
 # Author: James Whiteley (github.com/jamesalexwhiteley)
 
