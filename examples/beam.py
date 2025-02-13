@@ -3,7 +3,6 @@ from staticFEM.models import Frame
 
 # Author: James Whiteley (github.com/jamesalexwhiteley)
 
-
 nodes = np.array([
     [0, 0], 
     [2, 0], 
