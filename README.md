@@ -1,6 +1,6 @@
 # staticFEM
 
-Stiffness Matrix Analysis for 2D and 3D Frame Structures. 
+Stiffness Matrix Analysis for 2D and 3D Euler-Bernoulli Frame Structures. 
 
 <div align="center">
     <img src="figs/truss.png" alt="Truss; nodal forces and deflected shape" width="500"/>
