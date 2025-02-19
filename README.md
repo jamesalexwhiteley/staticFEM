@@ -37,3 +37,7 @@ frame.initialise()
 frame.solve()
 frame.show()
 ```
+
+<div align="center">
+    <img src="figs/grillage.png" alt="Grillage; deflected shape" width="500"/>
+</div>
