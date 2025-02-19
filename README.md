@@ -38,6 +38,6 @@ frame.solve()
 frame.show()
 ```
 
-<div align="center">
+<!-- <div align="center">
     <img src="figs/grillage.png" alt="Grillage; deflected shape" width="500"/>
-</div>
+</div> -->
