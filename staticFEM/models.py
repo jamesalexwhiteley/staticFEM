@@ -149,7 +149,7 @@ class TrussFEM():
 class Truss(TrussFEM):   
     def __init__(self, nodes, elements, E=200e9, A=0.1):
         """
-        Truss object. Input node xy locations and element connectivity array. 
+        Truss object. 
 
         Parameters
         ----------
@@ -224,7 +224,7 @@ class Truss(TrussFEM):
 class FrameFEM(Truss):
     def __init__(self, **kwargs):
         """
-        FEM model of a frame.
+        FEM model of a frame (Euler-Bernoulli).
 
         """
         for key, value in kwargs.items():
@@ -409,7 +409,7 @@ class FrameFEM(Truss):
 class Frame(FrameFEM):   
     def __init__(self, nodes, elements, E=1, A=1, I=1):
         """
-        Frame object. Input node xy (y=0) locations and element connectivity array. 
+        Frame object. 
 
         Parameters
         ----------
